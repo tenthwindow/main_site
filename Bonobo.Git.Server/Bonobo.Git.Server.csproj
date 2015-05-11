@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6129B3FE-B282-4F6F-8836-8AF66602F8DA}</ProjectGuid>
+    <ProjectTypeGuids>{e53f8fea-eae0-44a6-8774-ffd645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bonobo.Git.Server</RootNamespace>
+    <AssemblyName>Bonobo.Git.Server</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <ExcludeApp_Data>false</ExcludeApp_Data>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Update|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Bonobo.Git.Server.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <ExcludeApp_Data>true</ExcludeApp_Data>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.2\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="LibGit2Sharp, Version=0.18.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\LibGit2Sharp.0.18.1.0\lib\net40\LibGit2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MarkdownDeep">
+      <HintPath>..\packages\MarkdownDeep.Full.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.SQLite, Version=1.0.86.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.86.0\lib\net45\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.86.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.1.0.86.0\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Ude">
+      <HintPath>..\packages\UDE.CSharp.1.1.0\lib\Ude.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc4">
+      <HintPath>..\packages\Unity.Mvc4.1.1.0.0\lib\net40\Unity.Mvc4.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Update\AddGroup.cs" />
+    <Compile Include="Data\Update\SqlServer\AddGroup.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\SignatureExtensions.cs" />
+    <Compile Include="Configuration\AppSettings.cs" />
+    <Compile Include="Git\GitService\GitServiceResultParser.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\AutoCreateMissingRecoveryDirectories.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\OneFolderRecoveryFilePathBuilder.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\DurableGitServiceResult.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\IRecoveryFilePathBuilder.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\NamedArguments.cs" />
+    <Compile Include="Git\GitService\GitExecutionResult.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\GIT_OBJ_TYPE.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Durability\ReceivePackRecovery.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Hooks\AuditPusherToGitNotes.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\ReceivePackCommit.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\ReceivePackCommitSignature.cs" />
+    <Compile Include="Git\GitService\ReplicatingStream.cs" />
+    <Compile Include="Helpers\MembershipHelper.cs" />
+    <Compile Include="Helpers\RepositoryCommitModelHelpers.cs" />
+    <Compile Include="Models\RepositoryCommitTitle.cs" />
+    <Compile Include="UnityDecoratorBuildStrategy.cs" />
+    <Compile Include="UnityDecoratorContainerExtension.cs" />
+    <Compile Include="Git\ConfigurationBasedRepositoryLocator.cs" />
+    <Compile Include="Git\GitService\IGitService.cs" />
+    <Compile Include="Git\GitService\ExecutionOptions.cs" />
+    <Compile Include="Git\GitService\GitServiceExecutor.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Data\Update\AddAuditPushUser.cs" />
+    <Compile Include="Data\Update\AutomaticUpdater.cs" />
+    <Compile Include="Data\Update\RepositorySynchronizer.cs" />
+    <Compile Include="Data\Update\SqlServer\AddAuditPushUser.cs" />
+    <Compile Include="Data\Update\SqlServer\InitialCreateScript.cs" />
+    <Compile Include="Data\Update\SqlServer\InsertDefaultData.cs" />
+    <Compile Include="Data\Update\UsernamesToLower.cs" />
+    <Compile Include="Attributes\GitAuthorizeAttribute.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Configuration\ConfigurationEntry.cs" />
+    <Compile Include="Configuration\UserConfiguration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RepositoryController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Data\BonoboGitServerContext.cs" />
+    <Compile Include="Data\Mapping\RepositoryMap.cs" />
+    <Compile Include="Data\Mapping\RoleMap.cs" />
+    <Compile Include="Data\Mapping\TeamMap.cs" />
+    <Compile Include="Data\Mapping\UserMap.cs" />
+    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\Role.cs" />
+    <Compile Include="Data\Update\InitialCreateScript.cs" />
+    <Compile Include="Data\Update\InsertDefaultData.cs" />
+    <Compile Include="Data\Update\IUpdateScript.cs" />
+    <Compile Include="Data\Update\UpdateScriptRepository.cs" />
+    <Compile Include="Data\Team.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Data\EFRepositoryRepository.cs" />
+    <Compile Include="Data\EFTeamRepository.cs" />
+    <Compile Include="Data\IRepositoryRepository.cs" />
+    <Compile Include="Data\ITeamRepository.cs" />
+    <Compile Include="Attributes\EmailAttribute.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="FileActionResult.cs" />
+    <Compile Include="Attributes\FileNameAttribute.cs" />
+    <Compile Include="Attributes\WebAuthorizeAttribute.cs" />
+    <Compile Include="Git\GitCmdResult.cs" />
+    <Compile Include="Git\GitService\GitServiceExtensions.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\Hooks\NullReceivePackHook.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\IHookReceivePack.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\ParsedReceivePack.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\ReceivePackPktLine.cs" />
+    <Compile Include="Git\GitService\ReceivePackHook\ReceivePackParser.cs" />
+    <Compile Include="Git\IGitRepositoryLocator.cs" />
+    <Compile Include="Helpers\ContentDispositionUtil.cs" />
+    <Compile Include="Helpers\CssRewriteUrlTransformWrapper.cs" />
+    <Compile Include="Helpers\CustomHtmlHelpers.cs" />
+    <Compile Include="Helpers\PathEncoder.cs" />
+    <Compile Include="Models\HomeModels.cs" />
+    <Compile Include="Models\RepositoryModels.cs" />
+    <Compile Include="Models\SettingsModels.cs" />
+    <Compile Include="Models\TeamModels.cs" />
+    <Compile Include="Definitions.cs" />
+    <Compile Include="Attributes\WebAuthorizeRepositoryAttribute.cs" />
+    <Compile Include="RepositoryBrowser.cs" />
+    <Compile Include="Security\EFMembershipService.cs" />
+    <Compile Include="Security\EFRepositoryPermissionService.cs" />
+    <Compile Include="Controllers\GitController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_GlobalResources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\EFRoleProvider.cs" />
+    <Compile Include="Security\FormsAuthenticationService.cs" />
+    <Compile Include="Security\IFormsAuthenticationService.cs" />
+    <Compile Include="Security\IMembershipService.cs" />
+    <Compile Include="Security\IPasswordService.cs" />
+    <Compile Include="Security\IRepositoryPermissionService.cs" />
+    <Compile Include="FileDisplayHandler.cs" />
+    <Compile Include="Security\PasswordService.cs" />
+    <Compile Include="UnityDependencyResolver.cs" />
+    <Compile Include="FilterProviders\UnityFilterAttributeFilterProvider.cs" />
+    <Compile Include="Attributes\WindowsActionFilterAttribute.cs" />
+    <Compile Include="WindowsIdentityImporter.cs" />
+    <Compile Include="UsernameUrl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Git\antiword.exe" />
+    <Content Include="App_Data\Git\basename.exe" />
+    <Content Include="App_Data\Git\bash.exe" />
+    <Content Include="App_Data\Git\bison.exe" />
+    <Content Include="App_Data\Git\bzip2.exe" />
+    <Content Include="App_Data\Git\cat.exe" />
+    <Content Include="App_Data\Git\chmod.exe" />
+    <Content Include="App_Data\Git\cmp.exe" />
+    <Content Include="App_Data\Git\connect.exe" />
+    <Content Include="App_Data\Git\cp.exe" />
+    <Content Include="App_Data\Git\curl.exe" />
+    <Content Include="App_Data\Git\cut.exe" />
+    <Content Include="App_Data\Git\date.exe" />
+    <Content Include="App_Data\Git\diff.exe" />
+    <Content Include="App_Data\Git\dirname.exe" />
+    <Content Include="App_Data\Git\dos2unix.exe" />
+    <Content Include="App_Data\Git\du.exe" />
+    <Content Include="App_Data\Git\env.exe" />
+    <Content Include="App_Data\Git\expr.exe" />
+    <Content Include="App_Data\Git\false.exe" />
+    <Content Include="App_Data\Git\find.exe" />
+    <Content Include="App_Data\Git\flex.exe" />
+    <Content Include="App_Data\Git\gawk.exe" />
+    <Content Include="App_Data\Git\getcp.exe" />
+    <Content Include="App_Data\Git\git-receive-pack.exe" />
+    <Content Include="App_Data\Git\git-upload-archive.exe" />
+    <Content Include="App_Data\Git\git-upload-pack.exe" />
+    <Content Include="App_Data\Git\git.exe" />
+    <Content Include="App_Data\Git\gpg.exe" />
+    <Content Include="App_Data\Git\gpgkeys_curl.exe" />
+    <Content Include="App_Data\Git\gpgkeys_finger.exe" />
+    <Content Include="App_Data\Git\gpgkeys_hkp.exe" />
+    <Content Include="App_Data\Git\gpgkeys_ldap.exe" />
+    <Content Include="App_Data\Git\gpgsplit.exe" />
+    <Content Include="App_Data\Git\gpgv.exe" />
+    <Content Include="App_Data\Git\grep.exe" />
+    <Content Include="App_Data\Git\gunzip.exe" />
+    <Content Include="App_Data\Git\gzip.exe" />
+    <Content Include="App_Data\Git\head.exe" />
+    <Content Include="App_Data\Git\id.exe" />
+    <Content Include="App_Data\Git\kill.exe" />
+    <Content Include="App_Data\Git\less.exe" />
+    <Content Include="App_Data\Git\libapr-0-0.dll" />
+    <Content Include="App_Data\Git\libaprutil-0-0.dll" />
+    <Content Include="App_Data\Git\libcrypto.dll" />
+    <Content Include="App_Data\Git\libcurl.dll" />
+    <Content Include="App_Data\Git\libexpat-0.dll" />
+    <Content Include="App_Data\Git\libgsasl-7.def" />
+    <Content Include="App_Data\Git\libgsasl-7.dll" />
+    <Content Include="App_Data\Git\libiconv-2.dll" />
+    <Content Include="App_Data\Git\libiconv2.dll" />
+    <Content Include="App_Data\Git\libneon-25.dll" />
+    <Content Include="App_Data\Git\libpoppler-7.dll" />
+    <Content Include="App_Data\Git\libssl.dll" />
+    <Content Include="App_Data\Git\libsvn_client-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_delta-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_diff-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_fs-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_fs_fs-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_ra-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_ra_dav-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_ra_local-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_ra_svn-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_repos-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_subr-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_swig_perl-1-0.dll" />
+    <Content Include="App_Data\Git\libsvn_wc-1-0.dll" />
+    <Content Include="App_Data\Git\libW11.dll" />
+    <Content Include="App_Data\Git\libz.dll" />
+    <Content Include="App_Data\Git\ln.exe" />
+    <Content Include="App_Data\Git\ls.exe" />
+    <Content Include="App_Data\Git\m4.exe" />
+    <Content Include="App_Data\Git\md5sum.exe" />
+    <Content Include="App_Data\Git\mkdir.exe" />
+    <Content Include="App_Data\Git\msmtp.exe" />
+    <Content Include="App_Data\Git\msys-1.0.dll" />
+    <Content Include="App_Data\Git\msys-crypto-0.9.8.dll" />
+    <Content Include="App_Data\Git\msys-minires.dll" />
+    <Content Include="App_Data\Git\msys-perl5_8.dll" />
+    <Content Include="App_Data\Git\msys-regex-1.dll" />
+    <Content Include="App_Data\Git\msys-ssl-0.9.8.dll" />
+    <Content Include="App_Data\Git\msys-z.dll" />
+    <Content Include="App_Data\Git\msysltdl-3.dll" />
+    <Content Include="App_Data\Git\mv.exe" />
+    <Content Include="App_Data\Git\openssl.exe" />
+    <Content Include="App_Data\Git\patch.exe" />
+    <Content Include="App_Data\Git\pdfinfo.exe" />
+    <Content Include="App_Data\Git\pdftotext.exe" />
+    <Content Include="App_Data\Git\perl.exe" />
+    <Content Include="App_Data\Git\ps.exe" />
+    <Content Include="App_Data\Git\pthreadGC2.dll" />
+    <Content Include="App_Data\Git\rebase.exe" />
+    <Content Include="App_Data\Git\rm.exe" />
+    <Content Include="App_Data\Git\rmdir.exe" />
+    <Content Include="App_Data\Git\rxvt.exe" />
+    <Content Include="App_Data\Git\scp.exe" />
+    <Content Include="App_Data\Git\sed.exe" />
+    <Content Include="App_Data\Git\sh.exe" />
+    <Content Include="App_Data\Git\sleep.exe" />
+    <Content Include="App_Data\Git\sort.exe" />
+    <Content Include="App_Data\Git\split.exe" />
+    <Content Include="App_Data\Git\ssh-add.exe" />
+    <Content Include="App_Data\Git\ssh-agent.exe" />
+    <Content Include="App_Data\Git\ssh-keygen.exe" />
+    <Content Include="App_Data\Git\ssh-keyscan.exe" />
+    <Content Include="App_Data\Git\ssh.exe" />
+    <Content Include="App_Data\Git\tail.exe" />
+    <Content Include="App_Data\Git\tar.exe" />
+    <Content Include="App_Data\Git\tcl85.dll" />
+    <Content Include="App_Data\Git\tclpip85.dll" />
+    <Content Include="App_Data\Git\tclsh.exe" />
+    <Content Include="App_Data\Git\tclsh85.exe" />
+    <Content Include="App_Data\Git\tee.exe" />
+    <Content Include="App_Data\Git\tk85.dll" />
+    <Content Include="App_Data\Git\touch.exe" />
+    <Content Include="App_Data\Git\tr.exe" />
+    <Content Include="App_Data\Git\true.exe" />
+    <Content Include="App_Data\Git\uname.exe" />
+    <Content Include="App_Data\Git\uniq.exe" />
+    <Content Include="App_Data\Git\unzip.exe" />
+    <Content Include="App_Data\Git\wc.exe" />
+    <Content Include="App_Data\Git\wish.exe" />
+    <Content Include="App_Data\Git\wish85.exe" />
+    <Content Include="App_Data\Git\xargs.exe" />
+    <Content Include="App_Data\note.txt" />
+    <Content Include="App_Data\Repositories\note.txt" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.fr-FR.resx" />
+    <Content Include="bin\NativeBinaries\amd64\git2-90befde.dll" />
+    <Content Include="bin\NativeBinaries\x86\git2-90befde.dll" />
+    <Content Include="Content\components\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\components\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\components\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\components\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\components\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\components\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\components\highlight\src\styles\github.css" />
+    <Content Include="Content\components\pure\pure-min.css" />
+    <Content Include="Content\fonts.css" />
+    <Content Include="Content\fonts\opensans-bold.svg" />
+    <Content Include="Content\fonts\opensans-light.svg" />
+    <Content Include="Content\fonts\opensans-regular.svg" />
+    <Content Include="Content\images\git-logo.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\highlight.pack.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MarkdownDeep License.txt" />
+    <Content Include="Scripts\MarkdownDeep Quick Reference.txt" />
+    <Content Include="Scripts\MarkdownDeepLib.min.js" />
+    <Content Include="Content\components\markdowndeep\images\mdd_ajax_loader.gif" />
+    <Content Include="Content\components\markdowndeep\images\mdd_gripper.png" />
+    <Content Include="Content\components\markdowndeep\mdd_help.htm" />
+    <Content Include="Content\components\markdowndeep\images\mdd_modal_background.png" />
+    <Content Include="Content\components\markdowndeep\css\mdd_styles.css" />
+    <Content Include="Content\components\markdowndeep\images\mdd_toolbar.png" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\RepositoryGroupToggle.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\site.css" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Team\Delete.cshtml" />
+    <Content Include="Views\Repository\Delete.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="packages.config" />
+    <Content Include="..\changelog.md">
+      <Link>changelog.md</Link>
+    </Content>
+    <Content Include="..\license.md">
+      <Link>license.md</Link>
+    </Content>
+    <Content Include="..\readme.md">
+      <Link>readme.md</Link>
+    </Content>
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\Web.config" />
+    <Content Include="App_Data\Git\astextplain" />
+    <Content Include="App_Data\Git\awk" />
+    <Content Include="App_Data\Git\bunzip2" />
+    <Content Include="App_Data\Git\clear" />
+    <Content Include="App_Data\Git\curl-ca-bundle.crt" />
+    <Content Include="App_Data\Git\c_rehash" />
+    <Content Include="App_Data\Git\docx2txt" />
+    <Content Include="App_Data\Git\echo" />
+    <Content Include="App_Data\Git\egrep" />
+    <Content Include="App_Data\Git\gitk" />
+    <Content Include="App_Data\Git\gpg-zip" />
+    <Content Include="App_Data\Git\patch.exe.manifest" />
+    <Content Include="App_Data\Git\printf" />
+    <Content Include="App_Data\Git\pwd" />
+    <Content Include="App_Data\Git\recodetree" />
+    <Content Include="App_Data\Git\start" />
+    <Content Include="App_Data\Git\vi" />
+    <Content Include="App_Data\Git\vim" />
+    <Content Include="App_Data\Git\which" />
+    <Content Include="App_Data\Git\yacc" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.de-DE.resx" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
+    <Content Include="Content\fonts\opensans-bold.eot" />
+    <Content Include="Content\fonts\opensans-bold.ttf" />
+    <Content Include="Content\fonts\opensans-bold.woff" />
+    <Content Include="Content\fonts\opensans-light.eot" />
+    <Content Include="Content\fonts\opensans-light.ttf" />
+    <Content Include="Content\fonts\opensans-light.woff" />
+    <Content Include="Content\fonts\opensans-regular.eot" />
+    <Content Include="Content\fonts\opensans-regular.ttf" />
+    <Content Include="Content\fonts\opensans-regular.woff" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.zh-HK.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.zh-TW.resx" />
+    <Content Include="App_Data\.gitconfig" />
+    <None Include="Properties\PublishProfiles\Release-Api.pubxml" />
+    <None Include="Properties\PublishProfiles\Release-UI.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <Content Include="Views\Repository\Blob.cshtml" />
+    <Content Include="Views\Repository\Clone.cshtml" />
+    <Content Include="Views\Repository\History.cshtml" />
+    <Content Include="Views\Repository\Blame.cshtml" />
+    <Content Include="Views\Home\ForgotPassword.cshtml" />
+    <Content Include="Views\Home\ResetPassword.cshtml" />
+    <None Include="Web.Release-Api.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release-UI.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Update.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\LogOn.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Repository\Index.cshtml" />
+    <Content Include="Views\Team\Index.cshtml" />
+    <Content Include="Views\Repository\Detail.cshtml" />
+    <Content Include="Views\Home\Unauthorized.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Detail.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Team\Detail.cshtml" />
+    <Content Include="Views\Repository\Edit.cshtml" />
+    <Content Include="Views\Team\Edit.cshtml" />
+    <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\Repository\Create.cshtml" />
+    <Content Include="Views\Repository\_RepositoryLayout.cshtml" />
+    <Content Include="Views\Repository\Tree.cshtml" />
+    <Content Include="Views\Home\PageNotFound.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\ServerError.cshtml" />
+    <Content Include="Views\Repository\_BranchSwitcher.cshtml" />
+    <Content Include="Views\Repository\_AddressBar.cshtml" />
+    <Content Include="Views\Repository\Commits.cshtml" />
+    <Content Include="Views\Repository\Commit.cshtml" />
+    <Content Include="Views\Shared\_ItemNotFound.cshtml" />
+    <Content Include="Views\Repository\_Commit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_GlobalResources\Resources.sv-SE.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.cs-CZ.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.ru-RU.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.es-ES.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.ja-JP.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.pl-PL.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_GlobalResources\Resources.tr-TR.resx" />
+    <EmbeddedResource Include="App_GlobalResources\Resources.zh-CN.resx" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Api|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-UI|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target> -->
+  <Target Name="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+if not exist "$(TargetDir)NativeBinaries" md "$(TargetDir)NativeBinaries"
+if not exist "$(TargetDir)NativeBinaries\x86" md "$(TargetDir)NativeBinaries\x86"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.18.1.0\lib\net40\NativeBinaries\x86\*.*" "$(TargetDir)NativeBinaries\x86"
+if not exist "$(TargetDir)NativeBinaries\amd64" md "$(TargetDir)NativeBinaries\amd64"
+xcopy /s /y /d "$(SolutionDir)packages\LibGit2Sharp.0.18.1.0\lib\net40\NativeBinaries\amd64\*.*" "$(TargetDir)NativeBinaries\amd64"</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
